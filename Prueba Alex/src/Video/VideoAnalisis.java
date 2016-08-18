@@ -14,15 +14,22 @@ public class VideoAnalisis {
 	
 	 public static void main( String[] args ){
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		   	
-	   	VideoCapture camera = new VideoCapture("src//Video.MP4");
+		
+		//Abre el video   	
+	   	VideoCapture video = new VideoCapture("src//Video.MP4");
 		   				
-	   	if(camera.isOpened()){
-	   		Mat frame = new Mat();
+	   	if(video.isOpened()){
+	   		//La matriz donde se almacena al frame
+	   		Mat matrizRGB = new Mat();
+	   		
+	   		//Itera los frames
 	   	    while(true){
-	   	    	if (camera.read(frame)){
+	   	    	if (video.read(matrizRGB)){
 	   	    		System.out.println("Frame Capturado");
-	
+	   	    		
+	   	    		//Transforma la matriz RGB a HSV
+		            Mat matrizHsv = new Mat();
+		            Imgproc.cvtColor(matrizRGB, matrizHsv, Imgproc.COLOR_RGB2HSV);
 		            
 	   	    	}
 	   	    }
