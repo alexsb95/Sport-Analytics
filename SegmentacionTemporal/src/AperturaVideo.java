@@ -2,10 +2,6 @@
 import java.util.ArrayList;
 
 import org.opencv.core.*;
-import org.opencv.features2d.DMatch;
-import org.opencv.features2d.DescriptorExtractor;
-import org.opencv.features2d.DescriptorMatcher;
-import org.opencv.features2d.FeatureDetector;
 import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
@@ -35,6 +31,26 @@ public class AperturaVideo {
 		        System.out.println("Capa H extraida");
 				
 		        return capaH;
+			}
+			
+			public Mat SacarFrame(String nombrevideo){
+				
+				
+				VideoCapture video = new VideoCapture(nombrevideo);
+				
+				Mat Frame = new Mat();
+				if(!video.isOpened()){
+		    		System.out.println("Error");
+		    	}
+		    	else {
+		    		
+		    	    while(true){
+		    	    	if (video.read(Frame)){
+		    	    		return Frame;
+		    	    	}
+		    	    }
+		    	}
+				return null;
 			}
 			
 			public void CapturarVideo(String nombrevideo){
@@ -70,36 +86,44 @@ public class AperturaVideo {
 		    	            
 		    	    	    Highgui.imwrite("capaH.jpg", capaH);
 		    	    	    
-		    	    	    Mat imagen = new Mat();
-		    	    	    imagen = Highgui.imread("Imagen 1.jpg");
-
-		    	    	    int contador = 0;
-		    	    	    for( int j = 0; j < frame.rows() ; j++ )
-		    	    	     { 
-		    	    	         for( int i = 0; i < frame.cols(); i++ )
-		    	    	          {
-		    	    	        	 
-		    	    	        	 contador += frame.row(j).col(i).nativeObj;
-		    	    	          }
-		    	    	         
-		    	    	     }
-		    	    	    
-		    	    	    double[] data = null;
-		    	    	    double r = 0;
-		    	    	    double g = 0;
-		    	    	    double b = 0;
+		    	    	    double h = 0;
+		    	    	    double s = 0;
+		    	    	    double v = 0;
 		    	    	    		
-		    	    	    for (int i = 0; i < frame.height(); i++)
-		    	    	        for (int j = 0; j < frame.width(); j++) {
-		    	    	            r += frame.get(i, j)[0];
-		    	    	            g += frame.get(i, j)[1];
-		    	    	            b += frame.get(i, j)[2];
+		    	    	    for (int i = 0; i < HSV.height(); i++)
+		    	    	        for (int j = 0; j < HSV.width(); j++) {
+		    	    	            h += HSV.get(i, j)[0];
+		    	    	            s += HSV.get(i, j)[1];
+		    	    	            v += HSV.get(i, j)[2];
 		    	    	    }
 		    	    	    
-		    	    	    System.out.println(r);
-		    	    	    System.out.println(g);
-		    	    	    System.out.println(b);
+		    	    	    System.out.println(h);
+		    	    	    System.out.println(s);
+		    	    	    System.out.println(v);
 		    	    	    
+		    	    	    Mat imagen = new Mat();
+		    	    	    imagen = Highgui.imread("HSV.jpg");
+		    	    	    
+		    	    	    double h2 = 0;
+		    	    	    double s2 = 0;
+		    	    	    double v2 = 0;
+		    	    	    		
+		    	    	    for (int i = 0; i < imagen.height(); i++)
+		    	    	        for (int j = 0; j < imagen.width(); j++) {
+		    	    	            h2 += imagen.get(i, j)[0];
+		    	    	            s2 += imagen.get(i, j)[1];
+		    	    	            v2 += imagen.get(i, j)[2];
+		    	    	    }
+		    	    	    
+		    	    	    System.out.println(h2);
+		    	    	    System.out.println(s2);
+		    	    	    System.out.println(v2);
+		    	    	    
+		    	    	    int totalFramenHSV = (int)h  + (int)s  +(int)v;
+		    	    	    int totalimagenHSV = (int)h2 + (int)s2 +(int)v2;
+		    	    	    
+		    	    	    System.out.println(totalFramenHSV);
+		    	    	    System.out.println(totalimagenHSV);
 		    	            break;
 
 
