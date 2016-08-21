@@ -1,3 +1,5 @@
+package SegmentacionTemporal;
+
 
 import java.util.ArrayList;
 

@@ -1,3 +1,5 @@
+package SegmentacionTemporal;
+
 import org.opencv.core.Core;
 
 public class Main {
