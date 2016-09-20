@@ -19,7 +19,7 @@ public class TransformacionHSVTest {
 		AperturaVideo aperturavideo = new AperturaVideo();
 		
 		Mat Frame = new Mat();
-		Frame = aperturavideo.SacarFrame("src//Video.MP4");
+		Frame = aperturavideo.SacarFrame("C:\\Users\\Alex\\Documents\\GitHub\\Sport-Analytics\\Video.MP4");
 		
 		/*Esta es la funcion que se va a probar*/
 		Mat HSV = new Mat();

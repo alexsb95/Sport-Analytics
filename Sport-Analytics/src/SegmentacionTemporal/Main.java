@@ -9,7 +9,7 @@ public class Main {
 		
 		AperturaVideo video = new AperturaVideo();
 
-		video.CapturarVideo("src//Video.MP4");
+		video.CapturarVideo("C:\\Users\\Alex\\Documents\\GitHub\\Sport-Analytics\\Video.MP4");
 
 	}
 

@@ -18,7 +18,7 @@ System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		AperturaVideo aperturavideo = new AperturaVideo();
 		
 		Mat Frame = new Mat();
-		Frame = aperturavideo.SacarFrame("src//Video.MP4");
+		Frame = aperturavideo.SacarFrame("C:\\Users\\Alex\\Documents\\GitHub\\Sport-Analytics\\Video.MP4");
 		
 		Mat HSV = new Mat();
 		HSV = aperturavideo.TransformacionHSV(Frame);

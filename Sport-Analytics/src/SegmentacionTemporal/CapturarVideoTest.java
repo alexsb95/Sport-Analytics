@@ -24,7 +24,7 @@ public class CapturarVideoTest {
 		AperturaVideo aperturavideo = new AperturaVideo();
 		
 		/*Esta es la funcion que captura el frame del video*/
-		aperturavideo.CapturarVideo("src//Video.MP4");
+		aperturavideo.CapturarVideo("C:\\Users\\Alex\\Documents\\GitHub\\Sport-Analytics\\Video.MP4");
 		
 		Mat frameSacado = new Mat();
 		frameSacado = Highgui.imread("Frame.jpg");

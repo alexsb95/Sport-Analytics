@@ -82,10 +82,8 @@ public class AperturaVideo {
 		    	    	    capaH = ExtracionCapaH(HSV);
 		    	            
 		    	    	    Highgui.imwrite("capaH.jpg", capaH);
-    	    	    
-		    	            break;
-
-
+    
+		    	    	    break;
 		    	    	}
 		    	    }	
 		    	}
